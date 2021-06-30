@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title> TRANSITIVE BY JHAY </title>
+<script src="jquery-3.5.1.min.js"></script>
+<style>
+html {
+scroll-behavior: smooth;
+}
+*{
+box-sizing: border-box;
+}
+body {
+background-color: rgb(222,222,222,0.5);
+}
+.nav {
+background-color: black;
+position: fixed;
+top:0;
+right:0;
+z-index:1;
+overflow: hidden;
+height:100%;
+width:0;
+transition: 0.4s;
+}
+.nav a {
+color: white;
+text-decoration: none;
+display: block;
+border-bottom: 1px solid white;
+margin:10px;
+padding:20px;
+padding-top: 30px;
+transition: 0.4s
+}
+.nav a:nth-child(1){
+border-bottom: none;
+}
+nav a:nth-child(4){
+border-bottom: none;
+}
+.nav .close{
+cursor: pointer;
+position: absolute;
+top:0;
+right:0;
+font-size: 20px;
+font-weight:bold;
+}
+.open {
+cursor: pointer;
+font-size: 20px;
+position: fixed;
+right:25px;
+top:19px;
+font-weight: bold;
+color: white;
+}
+
+.banner img {
+max-width:100%;
+height: auto;
+transition: 0.5s;
+}
+.text{
+position:absolute;
+top:50%;
+left: 50%;
+transform:translate(-50%, -50%);
+transition: 0.7s;
+animation-name: opaque;
+animation-duration: 2s;
+}
+.text h1{
+color: white;
+text-align: center;
+font-size: 60px;
+}
+.text p {
+color: rgba(255,255,255,0.6);
+text-align: center;
+font-size: 23px;
+padding:15px;
+}
+.text p b{
+color: white;
+}
+.text a{
+text-decoration: none;
+color: white;
+background-color: rgba(59,157,227,0.8);
+padding: 13px;
+text-align: center;
+border-radius: 5px;
+margin: 170px;
+}
+@keyframes opaque {
+from {opacity:0;}
+to {opacity:1;}
+}
+.main img{
+max-width: 100%;
+height:auto;
+}
+.main{
+padding-top: 60px;
+}
+.topic{
+background-color: white;
+overflow: hidden;
+margin-top:-15px;
+}
+#lorem h1{
+text-align: center;
+color: black;
+font-size: 33px;
+padding-top: 60px;
+}
+#lorem p {
+text-align: center;
+color: rgba(166,166,166);
+font-size: 17px;
+}
+hr.hr1 {
+border-bottom:1px solid rgb(166,166,166);
+width: 95%;
+opacity:0.3;
+}
+.topici p{
+padding: 50px;
+color: rgba(166,166,166);
+font-size: 16px;
+}
+.trash {
+padding:0px;
+background-image: url("bg.jpg");
+background-size: cover;
+background-attachment: fixed;
+margin: 80px 0px;
+}
+.columns {
+column-count:3;
+column-rule: 1px solid white;
+column-gap: 40px;
+column-width: 202px;
+color: white;
+backdrop-filter: brightness(28%);
+z-index:1;
+padding:90px;
+}
+.coloma h2 {
+text-align: center;
+padding: 5px;
+}
+.coloma p{
+padding: 10px;
+text-align: center;
+}
+.coloma a{
+color: white;
+text-decoration: none;
+border: 1px solid white;
+padding: 10px;
+text-align: center;
+font-size: 13px;
+}
+.polaroid img {
+max-width: 100%;
+height:auto;
+}
+.polaroid {
+background-color: white;
+margin:50px 0px;
+}
+.polaroid h2 {
+text-align: center;
+padding-top: 50px;
+}
+.polaroid header p {
+text-align: center;
+color:rgb(166,166,166);
+font-size: 18px;
+padding: 10px;
+}
+.polaroid header hr {
+border: 1px solid lightgray;
+width: 80%;
+}
+.row {
+width: 50%;
+padding:10px;
+float: left;
+}
+.polaroid::after{
+content:"";
+clear: both;
+display: table;
+}
+.para {
+padding: 30px;
+color: rgba(166,166,166,1);
+}
+.newdiv{
+background-image:url("bg.jpg");
+margin:10px;
+background-size: cover;
+background-attachment: fixed;
+padding:0px;
+overflow: hidden;
+}
+.morbi {
+padding: 55px;
+color: white;
+backdrop-filter: brightness(28%);
+}
+.morbi h2{
+text-align: center;
+font-size: 30px;
+word-spacing:1px;
+}
+.morbi p{
+text-align:center;
+opacity: 0.8;
+font-size: 18px;
+}
+.form {
+background-color: white;
+padding: 30px;
+}
+select, textarea{
+width: 100%;
+padding: 12px;
+border: 1px solid lightgray;
+border-radius: 4px;
+background-color: rgba(222,222,222,0.5);
+}
+.form input[type="text"] {
+width: 100%;
+padding: 12px;
+border: 1px solid lightgray;
+border-radius: 4px;
+display: block;
+background-color: rgba(222,222,222,0.5);
+}
+label {
+padding: 12px;
+margin-bottom: 5px;
+display: inline-block;
+}
+textarea{
+height: 250px;
+resize:none;
+}
+input[type="submit"] {
+color: white;
+border:none;
+background-color: rgba(59,157,227,0.8);
+border-radius: 3px;
+padding: 10px;
+width: 15%;
+margin:30px 10px 10px 350px;
+}
+footer {
+color: rgba(166,166,166,0.8);
+font-size: 12px;
+text-align: center;
+}
+footer a{
+color: lightblue;
+}
+.form h1 {
+text-align: center;
+color: rgba(166,166,166,0.8);
+}
+</style>
+<body>
+<nav>
+<div class="nav" id="myNav">
+<a class="close" id="closeNav" onclick="closeNav()"> &times; </a>
+<a href="index.html"> Home </a>
+<a href="generict.html" target="_blank"> Generic</a>
+<a href="#"> Element </a>
+</div>
+<span class="open" id="openNav" onclick="openNav()"> &#9776; </span>
+</nav>
+<div class="banner">
+<img src="banner.jpg" style="width:100%;">
+<div class="text">
+<h1> Transitive</h1>
+<p>A full responsive, business-oriented HTML5/CSS3 template
+built by <b>Templated</b> & <b>Jhayisreal</b> and released under the <b>Creative Commons</b>.</p>
+<a href="#lorem">GET STARTED</a>
+</div>
+</div>
+<main>
+<div class="main">
+<img src="pic01.jpg" style="width:100%;">
+<div class="topic">
+<header id="lorem">
+<h1>LOREM IPSUM DOLOR </h1>
+<p> maecenas feugiat ex purus, quis volutpat lacus placerat</p>
+<hr class="hr1">
+</header>
+<div class="topici">
+<p>Cras aliquet urna ut sapien tincidunt, quis malesuada elit facilisis. Vestibulum sit amet tortor velit. Nam elementum nibh a libero pharetra elementum. Maecenas feugiat ex purus, quis volutpat lacus placerat malesuada. Praesent in sem ex. Morbi mattis sapien pretium tellus venenatis, at egestas urna ornare.
+<br>
+<br>
+<br>
+Vivamus fermentum nibh vel pharetra blandit. Cras a purus urna. Sed et libero ex. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Suspendisse id hendrerit felis. Nulla viverra tempor dui at congue. Pellentesque quis nulla ornare, congue nisi id, finibus nulla. Aliquam sit amet hendrerit purus. Donec libero massa, posuere fermentum eros sit amet, maximus fringilla augue. Maecenas at rhoncus lorem. Vivamus ultricies consequat est, efficitur convallis libero. Vivamus rutrum semper mauris, vitae consequat eros tempor ac. Pellentesque et ornare sapien</p>
+</div>
+</div>
+</div>
+<div class="trash">
+<div class="columns">
+<div class="coloma">
+<h2> TEMPUS FEUGIAT</h2>
+<p>Morbi interdum mollis sapien. Sed ac risus. Phasellus lacinia, magna a ullamcorper laoreet, lectus arcu</p>
+<a href="#"> LEARN MORE </a>
+</div>
+<div class="coloma">
+<h2> ALIQUAM NULLA</h2>
+<p>Ut convallis, sem sit amet interdum consectetuer, odio augue aliquam leo, nec dapibus tortor nibh sed</p>
+<a href="#"> LEARN MORE </a>
+</div>
+<div class="coloma">
+<h2> SED MAGNA</h2>
+<p>Suspendisse mauris. Fusce accumsan mollis eros. Pellentesque a diam sit amet mi ullamcorper vehicula.</p>
+<a href="#"> LEARN MORE </a>
+</div>
+</div>
+</div>
+<div class="row">
+<div class="polaroid">
+<img src="pic02.jpg" style="width:100%;">
+<div class="desc">
+<header>
+<h2> LOREM IPSUM DOLOR</h2>
+<p>maecenas feugiat ex purus, quis volutpat lacus placerat </p>
+<br>
+<hr>
+</header>
+<div class="para">
+<p>Cras aliquet urna ut sapien tincidunt, quis malesuada elit facilisis. Vestibulum sit amet tortor velit. Nam elementum nibh a libero pharetra elementum. Maecenas feugiat ex purus, quis volutpat lacus placerat malesuada.
+ Praesent in sem ex. Morbi mattis sapien pretium tellus venenatis, at egestas urna ornare.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="row">
+<div class="polaroid">
+<img src="pic03.jpg" style="width:100%;">
+<div class="desc">
+<header>
+<h2> VESTIBULUM SIT AMET</h2>
+<p>mattis sapien pretium tellus venenatis </p>
+<br>
+<hr>
+</header>
+<div class="para">
+<p>Cras aliquet urna ut sapien tincidunt, quis malesuada elit facilisis. Vestibulum sit amet tortor velit. Nam elementum nibh a libero pharetra elementum. Maecenas feugiat ex purus, quis volutpat lacus placerat malesuada.
+ Praesent in sem ex. Morbi mattis sapien pretium tellus venenatis, at egestas urna ornare.</p>
+</div>
+</div>
+</div>
+</div>
+<div> <img src="FFFFFF-0.8.png"></div>
+<div class="newdiv">
+<div class="morbi">
+<h2>MORBI INTERDUM MOLLIS SAPIEN</h2>
+<p>Cras aliquet urna ut sapien tincidunt, quis malesuada elit facilisis. Vestibulum sit amet tortor velit. Nam elementum nibh a libero pharetra elementum. Maecenas feugiat ex purus, quis volutpat lacus placerat malesuada. 
+Praesent in sem ex. Morbi mattis sapien pretium tellus venenatis, at egestas urna ornare.</p>
+</div>
+</div>
+<div class="form">
+<h1> GET IN TOUCH </h1>
+<form action="#" method="get">
+<hr>
+<label for="name"> Name </label>
+<input type="text" id="name" name="name" placeholder="Name" required>
+<label for="email" > Email</label>
+<input type="text" id="email" name="email" placeholder="Email" required>
+<label for="select"> Department </label>
+<select id="department" name="department">
+<option value="0"> - Category - </option>
+<option value="Manufacturing"> Manufacturing</option>
+<option value="Shipping"> Shipping</option>
+<option value="Administration"> Administration</option>
+<option value="Human Resources"> Human Resources</option>
+</select>
+<label for="message"> Message </label>
+<textarea placeholder="Message">
+</textarea>
+<input type="submit" value="SEND MESSAGE">
+</form>
+</div>
+</main>
+<footer>
+<p> © Jhayisreal Design: <a href="#">TEMPLATED.</a> Images <a href="#">Unsplash</a>. Video <a href="#">Coverr</a> </p>
+<br>
+<br>
+</footer>
+<script>
+function openNav() {
+document.getElementById("myNav").style.width="250px";
+}
+function closeNav() {
+document.getElementById("myNav").style.width="0px";
+}
+
+</script>
+</body>
+</html>
